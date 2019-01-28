@@ -1,4 +1,7 @@
-export type Post = { title: string; content: string };
+export type Post = {
+  title: string;
+  content: string;
+};
 
 export function sortByTitle(posts: Post[]) {
   const copy = [...posts];
