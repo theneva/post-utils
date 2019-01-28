@@ -24,12 +24,29 @@ const posts: Post[] = [dogs, rabbits, frogs];
 // 4. Run each function, and construct new arrays with expected output
 // for equality comparison
 test('sort by title', () => {
+  expect(posts.map(post => post.title).sort()).toMatchInlineSnapshot(`
+Array [
+  "Dogs",
+  "Frogs",
+  "Rabbits",
+]
+`);
+
   const result = sortByTitle(posts);
   const sortedByTitle = [dogs, frogs, rabbits];
   expect(result).toEqual(sortedByTitle);
 });
 
 test('sort by length', () => {
+  expect(posts.map(post => `${post.content.length} ${post.title}`).sort())
+    .toMatchInlineSnapshot(`
+Array [
+  "28 Rabbits",
+  "41 Dogs",
+  "85 Frogs",
+]
+`);
+
   const result = sortByLength(posts);
   const sortedByLength = [rabbits, dogs, frogs];
   expect(result).toEqual(sortedByLength);
